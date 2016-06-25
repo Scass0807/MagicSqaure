@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class SqaureGenerator 
+{
+	public static void main(String [] args)
+	{
+		boolean keepGoing = true;
+		while(keepGoing)
+		{
+			System.out.println("Choose one of the following Menu Items:");
+			System.out.println("1. Generate a sqaure once and test if it is a magic sqaure.");
+			System.out.println("2. Generate multiple sqaures until a magic sqaure is found.");
+			System.out.print("Enter your choice: ");
+			Scanner intInput = new Scanner(System.in);
+			int choice = intInput.nextInt();
+			if(choice == 1)
+			{
+					MagicSqaure sqaure = new MagicSqaure();
+					System.out.println(sqaure);
+			
+			}
+			else if(choice == 2)
+			{
+				boolean magic= false;
+				long count = 0;
+				while(magic == false)
+				{
+					MagicSqaure sqaure = new MagicSqaure();
+					
+					if(sqaure.getIsMagic() == true)
+					{
+						magic = true;
+					}
+					count++;
+				if(count%1000000 ==0)
+				{
+					System.out.println(count);
+				}
+				
+				}
+			}
+			System.out.println(sqaure);
+			System.out.print("Would you like to keep going? (y for yes or n for no) ");
+			Scanner StringInput = new Scanner(System.in);
+			String answer = StringInput.nextLine();
+			if(answer.equalsIgnoreCase("n"))
+			{
+				keepGoing = false;
+			}
+		
+		}
+	}
+}
